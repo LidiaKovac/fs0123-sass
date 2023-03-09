@@ -1,0 +1,47 @@
+// variabili
+// $colori: (
+//     $coloreSfondo: #123456
+//     $coloreTesto: white
+// );
+
+//map in sass === oggeti in js
+//let coloreSfondo = "red"
+@import "./partials/variables";
+@import "./partials/buttons";
+@import "./partials/mixins";
+//importa tutte le variabili
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.tema--chiaro {
+  @include tema(false); //$scuro => false
+}
+
+.tema--scuro {
+  @include tema(true); //$scuro ha valore true
+}
+
+.card {
+  width: 300px;
+  @include flex-center(column);
+  @include changeBackground("color", inherit);
+  padding: 20px;
+
+  .card__title {
+    h3 {
+      font-size: $fontSize;
+      //& => `this` in js
+      &:last-of-type {
+        color: inherit;
+      }
+    }
+  }
+  .card__body img {
+    width: 100%;
+  }
+}
+
+// .card .card__title{ //vecchia sintassi
+
+// }

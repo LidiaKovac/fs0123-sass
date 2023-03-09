@@ -1,0 +1,27 @@
+@import "./mixins";
+@import "./variables";
+button {
+  // rgba() => vecchio
+  // rgb(255,255,255,0.5) => nuovo
+  @include button(
+    transparentize($coloreSfondo, 0.5),
+    lighten($coloreSfondo, 20%)
+  );
+}
+// <button class='defaultButton'> </button>
+// la classe viene cambiata con classList.replace()
+.defaultButton {
+  @include button(
+    transparentize($coloreSfondo, 0.5),
+    lighten($coloreSfondo, 20%)
+  );
+}
+
+.specialButton {
+  @extend .defaultButton;
+  -webkit-box-shadow: 5px 5px 30px 0px #000000;
+  -moz-box-shadow: 5px 5px 30px 0px #000000;
+  -o-box-shadow: 5px 5px 30px 0px #000000;
+  box-shadow: 5px 5px 30px 0px #000000;
+  //attiviamo con js o qualcosa del genere
+}

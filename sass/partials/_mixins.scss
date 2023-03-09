@@ -1,0 +1,52 @@
+@mixin flex-center($direzione) {
+  display: flex;
+  flex-direction: $direzione;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button($backgroundColor, $textColor) {
+  border: none;
+  background-color: $backgroundColor;
+  color: $textColor;
+  border-radius: 20px;
+}
+
+@mixin flex-between($direzione, $allineamento) {
+  display: flex;
+  flex-direction: $direzione;
+  justify-content: space-between;
+  align-items: $allineamento;
+}
+
+@mixin changeBackground($valore, $contenuto) {
+  background-#{$valore}: $contenuto;
+  //interpolazione
+  // `background-${valore}: ${contenuto} `
+}
+//@include changeBackground("color", "red")
+//w-100 w-90 w-80 etc. etc.
+$grandezzeDelDiv: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10;
+@each $grandezza in $grandezzeDelDiv {
+    .w-#{$grandezza} {
+        width: #{$grandezza}vw
+        //nota, % ha un valore in sass e per questo non puo' essere interpolato
+    }
+}
+//for(const singleElement of array) {}
+//array.forEach(singleElement => {...})
+//@each $singleElement in $array
+
+@mixin tema($scuro: false) {
+  //se nell'include NON METTO NESSUN PARAMETRO, $scuro avra' valore di false
+  @if ($scuro) {
+    background-color: black;
+    color: white;
+  } @else {
+    background-color: white;
+    color: black;
+  }
+}
+
+// @include tema; => scuro === false
+// @include tema(true) => scuro === true
