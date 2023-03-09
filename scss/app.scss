@@ -1,0 +1,11 @@
+//la configurazione principale + import
+@import "./variables"; //sass toglie _ e .scss ma il file e' _variables.scss
+@import "./mixin";
+
+
+@import "./buttons";
+@import "./card";
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
